@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
-import {MDBContainer} from 'mdb-react-ui-kit';
-
 import "./App.css";
-import Card from './components/Card';
-import Search from './components/Search';
+import Home from './views/Home';
+import Details from './views/Details';
+import { Routes, Route } from "react-router-dom";
+
 
 export default function App() {
 
   return (
     <>
-      <MDBContainer className='containerColor'>
-        <MDBContainer className='containerColor'>
-          <h1>ALL PLAYERS</h1>
-        </MDBContainer>
-        <Search />
-        <Card />
-      </MDBContainer>
+      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/details/:id" element={<Details />} />
+      </Routes>
     </>
   );
 }
+
+{/* <GridExample key={puppy.id} puppy={puppy} /> */}
