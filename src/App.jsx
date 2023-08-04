@@ -1,6 +1,7 @@
 import "./App.css";
 import Home from './components/Home';
 import Details from './components/Details';
+import Form from './components/Form';
 import { Routes, Route } from "react-router-dom";
 
 
@@ -10,10 +11,10 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/addPuppy" element={<Form />} />
         <Route path="/details/:id" element={<Details />} />
       </Routes>
     </>
   );
 }
 
-{/* <GridExample key={puppy.id} puppy={puppy} /> */}

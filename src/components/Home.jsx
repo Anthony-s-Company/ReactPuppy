@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import {MDBContainer, MDBRow} from 'mdb-react-ui-kit';
+import {MDBContainer, MDBRow, MDBBtn} from 'mdb-react-ui-kit';
 
 import Card from '../components/Card'
 import Search from '../components/Search'
-
+import { Link } from "react-router-dom";
 
 import { fetchAllPlayers } from '../services/Services';
-
 
 export default function Home() {
   const [players, setPlayers] = useState();
@@ -32,14 +31,19 @@ export default function Home() {
     <>
       {loaded && !error && (
         <MDBContainer className='containerColor'>
-          <MDBContainer className='containerColor'>
-            <h1>ALL PLAYERS</h1>
+          <h1>ALL PLAYERS</h1>
+          <MDBContainer>
+            <Search />
+            <Link to={`/addPuppy`}>
+              <MDBBtn size='lg' color='success'>
+                ADD
+              </MDBBtn>
+            </Link>
+            {/* <MDBBtn size='lg' onClick={() => {<BasicModal />}}> Add </MDBBtn> */}
           </MDBContainer>
-          <Search />
           <MDBRow className='row-cols-1 row-cols-md-4 g-4'>
             {players.map((player) => <Card key={player.id} puppy={player}/>)}
           </MDBRow>
-          
         </MDBContainer>
         )
       }
