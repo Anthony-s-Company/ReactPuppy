@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {  
   MDBCol,  
   MDBCard,
@@ -7,33 +8,31 @@ import {
   MDBCardText,
   MDBCardFooter,
   MDBBtn  } from 'mdb-react-ui-kit';
-import { useNavigate, Link } from "react-router-dom";
-import Details from '../views/Details'
+import { Link } from "react-router-dom";
 
-
-export default function Card({name, breed, status, url, id}) {
-
-const navigate = useNavigate();
+export default function Card({puppy}) {
 
 return (
   <MDBCol>
     <MDBCard className='h-100'>
       <MDBCardImage
-        src={url}
+        src={puppy.imageUrl}
         alt='...'
         position='top'
       />
       <MDBCardBody className='cardBodyColor'>
-        <MDBCardTitle>{name}</MDBCardTitle>
+        <MDBCardTitle>{puppy.name}</MDBCardTitle>
         <MDBCardText>
-          {breed}
+          {puppy.breed}
         </MDBCardText>
       </MDBCardBody>
       <MDBCardFooter>
-        <MDBBtn className='me-1' color='success' onClick={() => <Details />}>
-          Details
-        </MDBBtn>
-        <MDBBtn className='me-1' color='warning'>
+        <Link to={`/details/${puppy.id}`}>
+          <MDBBtn className='me-1' color='success'>
+            Details
+          </MDBBtn>
+        </Link>
+        <MDBBtn className='me-1' color='warning' onClick={()=>{console.log('deleting and go home')}}>
           Delete
         </MDBBtn>
       </MDBCardFooter>

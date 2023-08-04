@@ -10,6 +10,26 @@
   border-radius: 15px;
 }
 
+.containerDetail {
+  background-color: #FCBF8D;
+  padding: 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+
 .cardBodyColor {
   background-color: #8DCAFC;
+
+}
+
+.cardDetail {
+  background-color: #8DCAFC;
+  text-align: center;
+  border-radius: 15px;
+  
+}
+
+.imgDetail {
+  border-radius: 10px;
 }

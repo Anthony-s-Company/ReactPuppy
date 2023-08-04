@@ -23,45 +23,43 @@ export const fetchAllPlayers = async () => {
 
 export const fetchSinglePlayer = async (playerId) => {
   try {
-      const response = await fetch(`${PLAYERS_APIURL}/${playerId}`);
-      const singlePlayerData = await response.json();
-      const player = singlePlayerData.data.player;
-      console.log(player);
-      return player;
+    const response = await fetch(`${PLAYERS_APIURL}/${playerId}`);
+    const singlePlayerData = await response.json();
+    const player = singlePlayerData.data.player;
+    return player;
   } catch (err) {
-      console.error(`Oh no, trouble fetching player #${playerId}!`, err);
+    console.error(`Oh no, trouble fetching player #${playerId}!`, err);
   }
 };
 
 export const addNewPlayer = async (playerPayload) => {
   try {
-      const response = await fetch(PLAYERS_APIURL,
-          {
-              method: 'POST',
-              body: JSON.stringify(playerPayload),
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-          });
+    const response = await fetch(PLAYERS_APIURL, {
+      method: "POST",
+      body: JSON.stringify(playerPayload),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-      const responseData = await response.json();
-      return responseData;
+    const responseData = await response.json();
+    return responseData;
   } catch (err) {
-      console.error('Oops, something went wrong with adding that player!', err);
+    console.error("Oops, something went wrong with adding that player!", err);
   }
 };
 
 export const removePlayer = async (playerId) => {
   try {
-      const response = await fetch(`${PLAYERS_APIURL}/${playerId}`, {
-          method: 'DELETE'
-      });
-      const deleteResponse = await response.json();
-      return deleteResponse;
+    const response = await fetch(`${PLAYERS_APIURL}/${playerId}`, {
+      method: "DELETE",
+    });
+    const deleteResponse = await response.json();
+    return deleteResponse;
   } catch (err) {
-      console.error(
-          `Whoops, trouble removing player #${playerId} from the roster!`,
-          err
-      );
+    console.error(
+      `Whoops, trouble removing player #${playerId} from the roster!`,
+      err
+    );
   }
 };
