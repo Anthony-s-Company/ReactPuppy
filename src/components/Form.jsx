@@ -10,6 +10,7 @@ import {
   MDBRow
 }
 from 'mdb-react-ui-kit';
+import { Link } from "react-router-dom";
 
 
 export default function Form() {
@@ -89,9 +90,13 @@ export default function Form() {
             </MDBRow>
             <MDBRow className='mb-8'>
               <MDBCol>
-              <MDBBtn className='mb-4 w-100 btn btn-warning-4' size='lg'
-                        type="reset" onClick={resetForm}>Home
-                </MDBBtn>
+              <Link to={`/`}>
+                <MDBContainer>
+                  <MDBBtn className='mb-4 w-100 btn btn-warning-4' size='lg'>
+                    HOME
+                  </MDBBtn>
+                </MDBContainer>
+              </Link>
               </MDBCol>
             </MDBRow>
           </MDBCardBody>
