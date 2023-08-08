@@ -18,22 +18,20 @@ const [error, setError] = useState(false);
 const [loaded, setLoaded] = useState(false);
 
 // useEffect(() => {
-//   async function deletePlayer() {
-//     try {
-//       const response = await removePlayer(puppy.id)
-//       setLoaded(true)
-//     } catch (error) {
-//       setError(error)
-//     }
-//   }
-//   setLoaded(false)
-//   deletePlayer();
+
 
 // }, []);
 
-function deletePuppy() {
-  console.log("cosa")
-}
+ async function deletePuppy() {
+    try {
+      await removePlayer(puppy.id)
+      setLoaded(true)
+      location.reload()
+    } catch (error) {
+      setError(error)
+    }
+  }
+
 
 return (
   <MDBCol>
@@ -55,9 +53,11 @@ return (
             Details
           </MDBBtn>
         </Link>
-        <MDBBtn className='me-1' color='warning' onClick={deletePuppy}>
-          Delete
-        </MDBBtn>
+        <Link to={`/`}>
+          <MDBBtn className='me-1' color='warning' onClick={deletePuppy}>
+            Delete
+          </MDBBtn>
+        </Link>
       </MDBCardFooter>
     </MDBCard>
   </MDBCol>

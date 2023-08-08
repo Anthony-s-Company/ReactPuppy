@@ -34,12 +34,13 @@ export default function Home() {
           <h1>ALL PLAYERS</h1>
           <MDBContainer>
             <Search />
-            <Link to={`/addPuppy`}>
-              <MDBBtn size='lg' color='success'>
-                ADD
-              </MDBBtn>
-            </Link>
-            {/* <MDBBtn size='lg' onClick={() => {<BasicModal />}}> Add </MDBBtn> */}
+            <MDBContainer className='btnContainer'>
+              <Link to={`/addPuppy`}>
+                <MDBBtn size='lg' color='success'>
+                  ADD
+                </MDBBtn>
+              </Link>
+            </MDBContainer>
           </MDBContainer>
           <MDBRow className='row-cols-1 row-cols-md-4 g-4'>
             {players.map((player) => <Card key={player.id} puppy={player}/>)}
@@ -50,5 +51,3 @@ export default function Home() {
     </>
   );
 }
-
-{/* <GridExample key={puppy.id} puppy={puppy} /> */}
